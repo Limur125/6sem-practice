@@ -1,0 +1,50 @@
+﻿@page "/requestslist"
+
+<PageTitle>Список заявок</PageTitle>
+
+@using BlazorApp.Data
+@inject RequestService RequestsController
+@inject NavigationManager NavManager
+
+<h1>Список заявок</h1>
+
+@if (requests == null)
+{
+    <p><em>Загрузка...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Номер заявки</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var request in requests)
+            {
+                <tr>
+                    <td>@request.Id</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => Details(request.Id)">Детали</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Request[]? requests;
+
+    protected override async Task OnInitializedAsync()
+    {
+        requests = await RequestsController.Index();
+    }
+
+    private void Details(int id)
+    {
+        NavManager.NavigateTo($"requestpage/{id}");
+    }
+}

@@ -1,0 +1,25 @@
+﻿@page "/createrequest"
+
+<PageTitle>Создать заявку</PageTitle>
+
+@using BlazorApp.Data
+@inject RequestService RequestsController
+
+<h1>Создать заявку</h1>
+
+<EditForm Model="@request" OnSubmit="AddRequest">
+	<p>
+		Текст заявки:<br />
+		<InputTextArea @bind-Value="request.Text"/>
+	</p>
+</EditForm>
+
+<button class="btn btn-primary" @onclick="AddRequest">Создать заявку</button>
+
+@code {
+	private Request request = new Request();
+	private async void AddRequest()
+	{
+		await RequestsController.Create(request);
+	}
+}

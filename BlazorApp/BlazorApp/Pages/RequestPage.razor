@@ -1,0 +1,71 @@
+﻿@page "/requestpage/{id}"
+
+<PageTitle>Заявка №@Id</PageTitle>
+
+@using BlazorApp.Data
+@inject RequestService RequestsController
+@inject RequestMaterialService RequestMaterialController
+
+<h1>Заявка №@Id</h1>
+
+
+@if (request == null)
+{
+	<p><em>Загрузка...</em></p>
+}
+else
+{
+    <h3>Текст заявки</h3>
+	<p>@request.Text</p>
+    <h3>Добавить материал к заявке</h3>
+
+    <EditForm Model="@newMaterial">
+        <p>
+            Текст материала:<br />
+            <InputTextArea @bind-Value="newMaterial.Text"/>
+        </p>
+    </EditForm>
+        
+    <button class="btn btn-primary" @onclick="CreateMaterial">Добавить материал</button>
+    <p></p>
+	<table class="table">
+        <thead>
+            <tr>
+                <th>Номер материала заявки</th>
+                <th>Текст материала</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var mat in materials)
+            {
+                <tr>
+                    <td>@mat.Id</td>
+                    <td>@mat.Text</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code 
+{
+    [Parameter]
+    public string? Id { get; set; } = "";
+
+    public Request request;
+    private RequestMaterial[] materials;
+    private RequestMaterial newMaterial = new RequestMaterial();
+
+    protected override async Task OnInitializedAsync()
+    {
+        request = await RequestsController.Get(Convert.ToInt32(Id));
+        materials = await RequestMaterialController.GetMaterials(Convert.ToInt32(Id));
+        
+    }
+
+    private async void CreateMaterial()
+    {
+        newMaterial.RequestId = Convert.ToInt32(Id);
+        await RequestMaterialController.Create(newMaterial);
+    }
+}
