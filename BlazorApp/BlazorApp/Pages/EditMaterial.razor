@@ -1,0 +1,54 @@
+﻿@page "/requestpage/{id}/{matId}"
+
+<PageTitle>Изменить материал №@MatId заявки №@Id</PageTitle>
+
+@using BlazorApp.Data
+@inject RequestService RequestsController
+@inject RequestMaterialService RequestMaterialController
+@inject NavigationManager NavManager
+
+<h1>Изменить материал №@MatId заявки №@Id</h1>
+
+
+@if (request == null)
+{
+        <p><em>Загрузка...</em></p>
+}
+else
+{
+        <EditForm Model="@material">
+            <p>
+                Текст материала заявки:<br />
+                <InputTextArea @bind-Value="material.Text"/>
+            </p>
+        </EditForm>
+
+        <button class="btn btn-primary" @onclick="Edit">Изменить</button>
+        
+}
+
+@code
+{
+    [Parameter]
+    public string? Id { get; set; } = "";
+    [Parameter]
+    public string? MatId { get; set; } = "";
+
+    public Request request;
+
+    private RequestMaterial[] materials;
+    private RequestMaterial material;
+
+    protected override async Task OnInitializedAsync()
+    {
+        request = await RequestsController.Get(Convert.ToInt32(Id));
+        materials = await RequestMaterialController.GetMaterials(Convert.ToInt32(Id));
+        material = materials.First(m => m.Id == Convert.ToInt32(MatId));
+    }
+
+    private async void Edit()
+    {
+        var newMat = await RequestMaterialController.Edit(material.Id, material);
+        NavManager.NavigateTo($"/requestpage/{newMat.RequestId}");
+    }
+}

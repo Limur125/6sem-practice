@@ -5,6 +5,7 @@
 @using BlazorApp.Data
 @inject RequestService RequestsController
 @inject RequestMaterialService RequestMaterialController
+@inject NavigationManager NavManager
 
 <h1>Заявка №@Id</h1>
 
@@ -33,6 +34,7 @@ else
             <tr>
                 <th>Номер материала заявки</th>
                 <th>Текст материала</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +43,9 @@ else
                 <tr>
                     <td>@mat.Id</td>
                     <td>@mat.Text</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => Edit(mat.Id)">Изменить</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -67,5 +72,9 @@ else
     {
         newMaterial.RequestId = Convert.ToInt32(Id);
         await RequestMaterialController.Create(newMaterial);
+    }
+    private void Edit(int matId)
+    {
+        NavManager.NavigateTo($"requestpage/{Id}/{matId}");
     }
 }
