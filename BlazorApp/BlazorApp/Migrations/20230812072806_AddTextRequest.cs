@@ -12,7 +12,7 @@ namespace BlazorApp.Migrations
         {
             migrationBuilder.AddColumn<string>(
                 name: "Text",
-                table: "Request",
+                table: "Requests",
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");
@@ -23,7 +23,7 @@ namespace BlazorApp.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "Text",
-                table: "Request");
+                table: "Requests");
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HjWomqIRBCpb7g8WR6AgWIsy/CAu4aT76lK2CnFlRL8=",
+  "Hash": "NV9rEjVbThdzL2Mcc8+e36Dqkjsln64cn8AHRIMv8Oo=",
   "Source": "BlazorApp",
   "BasePath": "_content/BlazorApp",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "BlazorApp\\wwwroot",
       "Source": "BlazorApp",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "Pattern": "**"
     }
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\zolot\\.nuget\\packages\\blazorise.bootstrap\\1.2.5\\staticwebassets\\tooltip.js"
+    },
+    {
+      "Identity": "C:\\Users\\zolot\\.nuget\\packages\\blazorise.datagrid\\1.2.5\\staticwebassets\\datagrid.js",
+      "SourceId": "Blazorise.DataGrid",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\zolot\\.nuget\\packages\\blazorise.datagrid\\1.2.5\\staticwebassets\\",
+      "BasePath": "_content/Blazorise.DataGrid",
+      "RelativePath": "datagrid.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\zolot\\.nuget\\packages\\blazorise.datagrid\\1.2.5\\staticwebassets\\datagrid.js"
     },
     {
       "Identity": "C:\\Users\\zolot\\.nuget\\packages\\blazorise\\1.2.5\\staticwebassets\\blazorise.css",
@@ -663,10 +680,10 @@
       "OriginalItemSpec": "C:\\Users\\zolot\\.nuget\\packages\\blazorise\\1.2.5\\staticwebassets\\vendors\\sha512.js"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BlazorApp.styles.css",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BlazorApp.styles.css",
       "SourceId": "BlazorApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "BlazorApp.styles.css",
       "AssetKind": "All",
@@ -677,13 +694,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BlazorApp.styles.css"
+      "OriginalItemSpec": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BlazorApp.styles.css"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
       "SourceId": "BlazorApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "BlazorApp.bundle.scp.css",
       "AssetKind": "All",
@@ -694,13 +711,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css"
+      "OriginalItemSpec": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -714,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -731,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -748,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -765,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -782,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -799,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -816,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -833,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -850,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -867,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -884,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\css\\site.css",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\css\\site.css",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -901,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\favicon.ico",
+      "Identity": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\favicon.ico",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",

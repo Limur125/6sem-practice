@@ -11,7 +11,7 @@ namespace BlazorApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Material",
+                name: "Materials",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -24,7 +24,7 @@ namespace BlazorApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Request",
+                name: "Requests",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -37,14 +37,14 @@ namespace BlazorApp.Migrations
                     table.ForeignKey(
                         name: "FK_Request_Material_RequestMaterialId",
                         column: x => x.RequestMaterialId,
-                        principalTable: "Material",
+                        principalTable: "Materials",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Request_RequestMaterialId",
-                table: "Request",
+                table: "Requests",
                 column: "RequestMaterialId");
         }
 
@@ -52,10 +52,10 @@ namespace BlazorApp.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Request");
+                name: "Requests");
 
             migrationBuilder.DropTable(
-                name: "Material");
+                name: "Materials");
         }
     }
 }

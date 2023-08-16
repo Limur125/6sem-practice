@@ -1,80 +1,141 @@
-﻿@page "/requestpage/{id}"
-
-<PageTitle>Заявка №@Id</PageTitle>
+﻿@page "/requestpage/{StrId}"
 
 @using BlazorApp.Data
-@inject RequestService RequestsController
-@inject RequestMaterialService RequestMaterialController
-@inject NavigationManager NavManager
+@using Blazorise.DataGrid
+@using BlazorApp.Pages.Modals.Material
 
-<h1>Заявка №@Id</h1>
-
+@inject IRequestService requestService
+@inject IMaterialService materialService
+@inject NavigationManager navManager
 
 @if (request == null)
 {
-	<p><em>Загрузка...</em></p>
+	<p><em>Заявка не найдена</em></p>
 }
 else
 {
-    <h3>Текст заявки</h3>
-	<p>@request.Text</p>
-    <h3>Добавить материал к заявке</h3>
+    <PageTitle>Заявка №@request.FullNumber</PageTitle>
+    <center><h1>Заявка №@request.FullNumber</h1></center>
+        <Tabs SelectedTab="@selectedTab" SelectedTabChanged="@OnSelectedTabChanged">
+        <Items>
+            <Tab Name="request">Заявка</Tab>
+            <Tab Name="materials">Материалы</Tab>
+        </Items>
+        <Content>
+            <TabPanel Name="request">
+                    <Table Bordered>
+                        <TableBody>
+                            <TableRow>
+                                <TableRowHeader>№ заявки:</TableRowHeader>
+                                <TableRowCell>@request.FullNumber</TableRowCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowHeader>Автор заявки:</TableRowHeader>
+                                <TableRowCell>@request.Author</TableRowCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowHeader>Подразделение автора:</TableRowHeader>
+                                <TableRowCell>@request.Department</TableRowCell>
+                            </TableRow>
+                            <TableRow>
+                                    <TableRowHeader>Дата создания:</TableRowHeader>
+                                <TableRowCell>@request.Created</TableRowCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowHeader>Статус:</TableRowHeader>
+                                <TableRowCell>@request.TextStatus</TableRowCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+            </TabPanel>
+            <TabPanel Name="materials">
+                <DataGrid TItem="Material"
+                    Data="@request.Materials"
+                    @bind-SelectedRow="@selected"
+                    Editable
+                    Responsive
+                    Filterable
+                    FilterMode="DataGridFilterMode.Menu"
+                    ShowPager
+                    CommandMode="DataGridCommandMode.ButtonRow">
+                <DataGridColumns>
+                    <DataGridColumn Field="@nameof(Material.Name)" Caption="Наименование" Editable/>
+                    <DataGridColumn Field="@nameof(Material.Serial)" Caption="Код" Editable />
+                    <DataGridColumn Field="@nameof(Material.Count)" Caption="Количество" Editable />
+                    <DataGridColumn Field="@nameof(Material.Comment)" Caption="Комментарий" Editable/>
+                </DataGridColumns>
+                <ButtonRowTemplate>
+                    <Button Color="Color.Success" Disabled="(request.State == RequestState.APPROVED)" Clicked="ShowCreate">Добавить</Button>
+                    <Button Color="Color.Primary" Disabled="(selected is null || request.State == RequestState.APPROVED)" Clicked="ShowEdit">Изменить</Button>
+                    <Button Color="Color.Danger" Disabled="(selected is null || request.State == RequestState.APPROVED)" Clicked="ShowDelete">Удалить</Button>
+                </ButtonRowTemplate>
+                
+            </DataGrid>
+            </TabPanel>
+        </Content>
+    </Tabs>   
 
-    <EditForm Model="@newMaterial">
-        <p>
-            Текст материала:<br />
-            <InputTextArea @bind-Value="newMaterial.Text"/>
-        </p>
-    </EditForm>
-        
-    <button class="btn btn-primary" @onclick="CreateMaterial">Добавить материал</button>
-    <p></p>
-	<table class="table">
-        <thead>
-            <tr>
-                <th>Номер материала заявки</th>
-                <th>Текст материала</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var mat in materials)
-            {
-                <tr>
-                    <td>@mat.Id</td>
-                    <td>@mat.Text</td>
-                    <td>
-                        <button class="btn btn-primary" @onclick="() => Edit(mat.Id)">Изменить</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <AddMaterialModal @ref=@addMaterialModal OnSubmit="@SubmitAddMaterial"></AddMaterialModal>
+    <EditMaterialModal @ref=@editMaterialModal OnSubmit="@SubmitEditMaterial"></EditMaterialModal>
+    <DeleteMaterialModal @ref=deleteMaterialModal OnSubmit="@SumbitDeleteMaterial"></DeleteMaterialModal>
 }
 
 @code 
 {
     [Parameter]
-    public string? Id { get; set; } = "";
-
-    public Request request;
-    private RequestMaterial[] materials;
-    private RequestMaterial newMaterial = new RequestMaterial();
+    public string? StrId { get; set; }
+    private int id;
+    private Request? request;
+    private Material selected;
+    private AddMaterialModal addMaterialModal;
+    private EditMaterialModal editMaterialModal;
+    private DeleteMaterialModal deleteMaterialModal;
+    string selectedTab = "request";
 
     protected override async Task OnInitializedAsync()
     {
-        request = await RequestsController.Get(Convert.ToInt32(Id));
-        materials = await RequestMaterialController.GetMaterials(Convert.ToInt32(Id));
-        
+        id = Convert.ToInt32(StrId);
+        request = await requestService.Get(id);
     }
 
-    private async void CreateMaterial()
+    private Task OnSelectedTabChanged(string name)
     {
-        newMaterial.RequestId = Convert.ToInt32(Id);
-        await RequestMaterialController.Create(newMaterial);
+        selectedTab = name;
+
+        return Task.CompletedTask;
     }
-    private void Edit(int matId)
+
+    private async void ShowDelete()
     {
-        NavManager.NavigateTo($"requestpage/{Id}/{matId}");
+        await deleteMaterialModal.Show(selected);
+    }
+
+    private async void SumbitDeleteMaterial(Material m)
+    {
+        await materialService.Delete(m.Id);
+        request = await requestService.Get(request.Id);
+        StateHasChanged();
+    }
+
+    private async void ShowCreate()
+    {
+        await addMaterialModal.Show(request);
+    }
+
+    private async void SubmitAddMaterial(Material m)
+    {
+        await materialService.Create(m);
+        request = await requestService.Get(request.Id);
+        StateHasChanged();
+    }
+
+    private async void ShowEdit()
+    {
+        await editMaterialModal.Show(request, selected);
+    }
+
+    private async void SubmitEditMaterial(Material m)
+    {
+        await materialService.Edit(m);
     }
 }

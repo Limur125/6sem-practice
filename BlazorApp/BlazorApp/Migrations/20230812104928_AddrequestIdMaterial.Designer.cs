@@ -24,7 +24,7 @@ namespace BlazorApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BlazorApp.Data.Request", b =>
+            modelBuilder.Entity("BlazorApp.Data.Requests", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,7 +38,7 @@ namespace BlazorApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Request");
+                    b.ToTable("Requests");
                 });
 
             modelBuilder.Entity("BlazorApp.Data.RequestMaterial", b =>
@@ -60,21 +60,21 @@ namespace BlazorApp.Migrations
 
                     b.HasIndex("RequestId");
 
-                    b.ToTable("Material");
+                    b.ToTable("Materials");
                 });
 
             modelBuilder.Entity("BlazorApp.Data.RequestMaterial", b =>
                 {
-                    b.HasOne("BlazorApp.Data.Request", "Request")
+                    b.HasOne("BlazorApp.Data.Requests", "Requests")
                         .WithMany("Materials")
                         .HasForeignKey("RequestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Request");
+                    b.Navigation("Requests");
                 });
 
-            modelBuilder.Entity("BlazorApp.Data.Request", b =>
+            modelBuilder.Entity("BlazorApp.Data.Requests", b =>
                 {
                     b.Navigation("Materials");
                 });

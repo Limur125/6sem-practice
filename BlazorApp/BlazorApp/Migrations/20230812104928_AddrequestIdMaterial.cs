@@ -12,11 +12,11 @@ namespace BlazorApp.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Material_Request_RequestId",
-                table: "Material");
+                table: "Materials");
 
             migrationBuilder.AlterColumn<int>(
                 name: "RequestId",
-                table: "Material",
+                table: "Materials",
                 type: "int",
                 nullable: false,
                 defaultValue: 0,
@@ -26,9 +26,9 @@ namespace BlazorApp.Migrations
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Material_Request_RequestId",
-                table: "Material",
+                table: "Materials",
                 column: "RequestId",
-                principalTable: "Request",
+                principalTable: "Requests",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -38,11 +38,11 @@ namespace BlazorApp.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Material_Request_RequestId",
-                table: "Material");
+                table: "Materials");
 
             migrationBuilder.AlterColumn<int>(
                 name: "RequestId",
-                table: "Material",
+                table: "Materials",
                 type: "int",
                 nullable: true,
                 oldClrType: typeof(int),
@@ -50,9 +50,9 @@ namespace BlazorApp.Migrations
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Material_Request_RequestId",
-                table: "Material",
+                table: "Materials",
                 column: "RequestId",
-                principalTable: "Request",
+                principalTable: "Requests",
                 principalColumn: "Id");
         }
     }

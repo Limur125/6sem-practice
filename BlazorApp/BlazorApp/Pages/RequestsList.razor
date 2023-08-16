@@ -3,56 +3,107 @@
 <PageTitle>Список заявок</PageTitle>
 
 @using BlazorApp.Data
-@inject RequestService RequestsController
-@inject NavigationManager NavManager
+@using Blazorise.DataGrid
+@using BlazorApp.Pages.Modals.Request
+@inject IRequestService requestService
+@inject NavigationManager navManager
 
 <h1>Список заявок</h1>
 
-@if (requests == null)
-{
-    <p><em>Загрузка...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Номер заявки</th>
-                <th></th><th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var request in requests)
-            {
-                <tr>
-                    <td>@request.Id</td>
-                    <td>
-                        <button class="btn btn-primary" @onclick="() => Details(request.Id)">Детали</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-primary" @onclick="() => Edit(request.Id)">Изменить</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<DataGrid TItem="Request"
+        Data="@requests"
+        @bind-SelectedRow="@selected"
+        Editable
+        Responsive
+        Filterable
+        FilterMode="DataGridFilterMode.Menu"
+        ShowPager
+        CommandMode="DataGridCommandMode.ButtonRow">
+    <DataGridColumns>
+        <DataGridColumn Field="@nameof(Request.FullNumber)" Caption="№ заявки" />
+        <DataGridColumn Field="@nameof(Request.Author)" Caption="Автор" Editable />
+        <DataGridColumn Field="@nameof(Request.Department)" Caption="Подразделение" Editable />
+        <DataGridColumn Field="@nameof(Request.Created)" Caption="Дата создания" />
+        <DataGridColumn Field="@nameof(Request.TextStatus)" Caption="Статус" />
+    </DataGridColumns>
+    <ButtonRowTemplate>
+        <Button Color="Color.Success" Clicked="ShowCreate">Добавить</Button>
+        <Button Color="Color.Primary" Disabled="(selected is null || selected.State == RequestState.APPROVED)" Clicked="ShowEdit">Изменить</Button>
+        <Button Color="Color.Danger" Disabled="(selected is null || selected.State == RequestState.APPROVED)" Clicked="ShowDelete">Удалить</Button>
+        <Button Color="Color.Info" Disabled="(selected is null)" Clicked="Details">Детали</Button>
+        <Button Color="Color.Success" Disabled="(selected is null || selected.State == RequestState.APPROVED)" Clicked="ShowApprove">Утвердить</Button>
+    </ButtonRowTemplate>
+</DataGrid>
+
+<AddRequestModal @ref=@addRequestModal OnSubmit="SubmitCreate"></AddRequestModal>
+<EditRequestModal @ref=@editRequestModal OnSubmit="SubmitEdit"></EditRequestModal>
+<DeleteRequestModal @ref=@deleteRequestModal OnSubmit="SubmitDelete"></DeleteRequestModal>
+<ApproveRequestModal @ref=@approveRequestModal OnSubmit="SubmitApprove"></ApproveRequestModal>
 
 @code {
-    private Request[]? requests;
+    private AddRequestModal addRequestModal = new();
+    private EditRequestModal editRequestModal = new();
+    private DeleteRequestModal deleteRequestModal = new();
+    private ApproveRequestModal approveRequestModal = new();
+    private List<Request> requests;
+    private Request selected;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        requests = await RequestsController.Index();
+        requests = requestService.GetAllRequests();
     }
 
-    private void Details(int id)
+    private void Details()
     {
-        NavManager.NavigateTo($"requestpage/{id}");
+        navManager.NavigateTo($"requestpage/{selected.Id}");
     }
 
-    private void Edit(int id)
+    private async void ShowDelete()
     {
-        NavManager.NavigateTo($"requestpage/{id}/edit");
+        await deleteRequestModal.Show(selected);
+    }
+
+    private async void SubmitDelete(Request r) 
+    {
+        await requestService.Delete(r.Id);
+        requests = requestService.GetAllRequests();
+        StateHasChanged();
+    }
+
+    private async void ShowApprove()
+    {
+        await approveRequestModal.Show(selected);
+    }
+
+    private async void SubmitApprove(Request r)
+    {
+        r.State = RequestState.APPROVED;
+        await requestService.Edit(r);
+    }
+
+    private async void ShowCreate()
+    {
+        await addRequestModal.Show();
+    }
+
+    private async void SubmitCreate(Request r)
+    {
+        var yearFilteredRequests = requests.Where(req => req.Created.Year % 100 == r.Created.Year % 100);
+        int i = 1;
+        for (; yearFilteredRequests.Any(req => req.Number == i); i++) ;
+        r.Number = i;
+        await requestService.Create(r);
+        requests = requestService.GetAllRequests();
+        StateHasChanged();
+    }
+
+    private async void ShowEdit()
+    {
+        await editRequestModal.Show(selected);
+    }
+
+    private async void SubmitEdit(Request r)
+    {
+        await requestService.Edit(r);
     }
 }

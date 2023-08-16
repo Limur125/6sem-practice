@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\BlazorApp.csproj": {}
+    "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\BlazorApp.csproj": {}
   },
   "projects": {
-    "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\BlazorApp.csproj": {
+    "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\BlazorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\BlazorApp.csproj",
+        "projectUniqueName": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\BlazorApp.csproj",
         "projectName": "BlazorApp",
-        "projectPath": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\BlazorApp.csproj",
+        "projectPath": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\BlazorApp.csproj",
         "packagesPath": "C:\\Users\\zolot\\.nuget\\packages\\",
-        "outputPath": "C:\\zolot\\6sem-practice\\Limur125\\6sem-practice\\BlazorApp\\BlazorApp\\obj\\",
+        "outputPath": "C:\\zolot\\6sem-practice\\Limur125\\BlazorApp\\BlazorApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\zolot\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -48,19 +48,25 @@
               "target": "Package",
               "version": "[1.2.5, )"
             },
-            "Blazorise.Icons.FontAwesome": {
+            "Blazorise.DataGrid": {
               "target": "Package",
               "version": "[1.2.5, )"
             },
-            "EntityFramework": {
+            "Blazorise.Icons.FontAwesome": {
               "target": "Package",
-              "version": "[6.4.4, )"
+              "version": "[1.2.5, )"
             },
             "Microsoft.AspNetCore.Authentication.Negotiate": {
               "target": "Package",
               "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.10, )"
             },

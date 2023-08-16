@@ -1,8 +1,6 @@
 using BlazorApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Negotiate;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Blazorise;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
@@ -37,8 +35,8 @@ namespace BlazorApp
 
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
-            builder.Services.AddSingleton<RequestService>();
-            builder.Services.AddSingleton<RequestMaterialService>();
+            builder.Services.AddSingleton<IRequestService, RequestService>();
+            builder.Services.AddSingleton<IMaterialService, MaterialService>();
 
             var app = builder.Build();
 

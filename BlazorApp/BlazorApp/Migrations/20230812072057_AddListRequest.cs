@@ -12,32 +12,32 @@ namespace BlazorApp.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Request_Material_RequestMaterialId",
-                table: "Request");
+                table: "Requests");
 
             migrationBuilder.DropIndex(
                 name: "IX_Request_RequestMaterialId",
-                table: "Request");
+                table: "Requests");
 
             migrationBuilder.DropColumn(
                 name: "RequestMaterialId",
-                table: "Request");
+                table: "Requests");
 
             migrationBuilder.AddColumn<int>(
                 name: "RequestId",
-                table: "Material",
+                table: "Materials",
                 type: "int",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Material_RequestId",
-                table: "Material",
+                table: "Materials",
                 column: "RequestId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Material_Request_RequestId",
-                table: "Material",
+                table: "Materials",
                 column: "RequestId",
-                principalTable: "Request",
+                principalTable: "Requests",
                 principalColumn: "Id");
         }
 
@@ -46,33 +46,33 @@ namespace BlazorApp.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Material_Request_RequestId",
-                table: "Material");
+                table: "Materials");
 
             migrationBuilder.DropIndex(
                 name: "IX_Material_RequestId",
-                table: "Material");
+                table: "Materials");
 
             migrationBuilder.DropColumn(
                 name: "RequestId",
-                table: "Material");
+                table: "Materials");
 
             migrationBuilder.AddColumn<int>(
                 name: "RequestMaterialId",
-                table: "Request",
+                table: "Requests",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Request_RequestMaterialId",
-                table: "Request",
+                table: "Requests",
                 column: "RequestMaterialId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Request_Material_RequestMaterialId",
-                table: "Request",
+                table: "Requests",
                 column: "RequestMaterialId",
-                principalTable: "Material",
+                principalTable: "Materials",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
